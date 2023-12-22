@@ -1,0 +1,39 @@
+// Creating entities and relationships
+CREATE (simpa:Animal {name: 'Simpa', color: 'white'})
+CREATE (cat:Animal {name: 'Cat'})
+CREATE (alia:Girl {name: 'Alia'})
+CREATE (alia)-[:OWNS]->(simpa)
+CREATE (alia)-[:IS]->(hobbit:Race {name: 'Hobbit'})
+CREATE (alia)-[:FINDS]->(ring:Object {name: 'Magic Ring'})
+CREATE (ring)-[:IN]->(cave:Place {name: 'Cave'})
+CREATE (simpa)-[:IS]->(cat)
+
+CREATE (milk:Food {name: 'Milk'})
+CREATE (salmon:Food {name: 'Salmon fish'})
+CREATE (cat)-[:LIKES]->(milk)
+CREATE (cat)-[:LIKES]->(salmon)
+CREATE (cat)-[:SITS_ON]->(carpet:Object {name: 'Carpet'})
+
+CREATE (bird:Animal {name: 'Killdeer', fur: true})
+CREATE (bird)-[:CAUGHT_BY]->(simpa)
+CREATE (bird)-[:HAS]->(beak:BodyPart {name: 'long and thin beak'})
+CREATE (bird)-[:HIDING]->(location:Location {name: 'between a curtain and a window'})
+
+CREATE (whale:Animal {name: 'Whale', size: 'big'})
+CREATE (whale)-[:SEEN_BY]->(alia)
+
+CREATE (village:Place {name: 'Acciaroli', age: 100})
+CREATE (alia)-[:LIVED_IN]->(village)
+CREATE (village)-[:ON_SHORE_OF]->(ocean:Place {name: 'Ocean'})
+CREATE (whale)-[:LIVES_IN]->(ocean)
+
+CREATE (mammal:Type {name: 'Mammal'})
+
+CREATE (cat)-[:IS]->(mammal)
+CREATE (bird)-[:IS]->(mammal)
+CREATE (whale)-[:IS]->(mammal)
+
+CREATE (mammal)-[:HAVE]->(vertebrae:Class {name: 'Vertebrae'})
+CREATE (mammal)-[:BELONGS_TO]->(animal:Animal {name: 'Kingdom Animal'})
+
+RETURN simpa, cat, alia, milk, salmon, bird, beak, location, whale, village, ocean, mammal, cave, ring, carpet, hobbit, vertebrae, animal

@@ -1,0 +1,11 @@
+
+MATCH (alia:Girl {name: 'Alia'}), (cat:Animal {name: 'Cat'}), (alia)-[:LIVED_IN]->(village:Place {name: 'Acciaroli'})
+MERGE (alia)-[:LIKES]->(activity:Activity {name: 'Catch and eat fish'})
+WITH alia, activity
+MATCH (simpa:Animal {name: 'Simpa'}), (animal:Animal {name: 'Kingdom Animal'}), (mammal:Type {name: 'Mammal'})
+MERGE (crab:Animal {name: 'Crab'})
+MERGE (simpa)-[:ONCE_BITTEN_BY]->(crab)
+MERGE (crab)-[:BELONGS_TO]->(animal)
+MERGE (crab)-[:IS_NOT]->(mammal)
+
+RETURN alia, activity, simpa, crab

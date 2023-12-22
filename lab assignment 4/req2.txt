@@ -1,0 +1,5 @@
+MATCH (alia:Girl {name: 'Alia'})-[:LIVED_IN]->(village:Place {name: 'Acciaroli', age: 100})
+SET village.age = 1000
+
+RETURN alia, village
+

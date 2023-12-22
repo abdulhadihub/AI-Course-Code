@@ -1,0 +1,9 @@
+MATCH (alia:Girl {name: 'Alia'})-[owns:OWNS]->(simpa:Animal {name: 'Simpa'})
+REMOVE simpa.color
+DELETE owns
+RETURN alia, simpa
+
+MATCH (whale:Animal {name: 'Whale'})-[seenBy:SEEN_BY]->(alia:Girl {name: 'Alia'})
+DELETE seenBy
+RETURN alia, whale
+
